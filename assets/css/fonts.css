@@ -1,0 +1,101 @@
+/* Regular */
+@font-face {
+  font-family: 'SFMono Nerd Font';
+  src: url('/fonts/SFMono Regular Nerd Font Complete.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'SFMono Nerd Font';
+  src: url('/fonts/SFMono Regular Italic Nerd Font Complete.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: fallback;
+}
+
+/* Light */
+@font-face {
+  font-family: 'SFMono Nerd Font';
+  src: url('/fonts/SFMono Light Nerd Font Complete.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'SFMono Nerd Font';
+  src: url('/fonts/SFMono Light Italic Nerd Font Complete.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: fallback;
+}
+
+/* Medium */
+@font-face {
+  font-family: 'SFMono Nerd Font';
+  src: url('/fonts/SFMono Medium Nerd Font Complete.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'SFMono Nerd Font';
+  src: url('/fonts/SFMono Medium Italic Nerd Font Complete.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: fallback;
+}
+
+/* Semibold */
+@font-face {
+  font-family: 'SFMono Nerd Font';
+  src: url('/fonts/SFMono Semibold Nerd Font Complete.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'SFMono Nerd Font';
+  src: url('/fonts/SFMono Semibold Italic Nerd Font Complete.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: fallback;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'SFMono Nerd Font';
+  src: url('/fonts/SFMono Bold Nerd Font Complete.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'SFMono Nerd Font';
+  src: url('/fonts/SFMono Bold Italic Nerd Font Complete.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: fallback;
+}
+
+/* Heavy */
+@font-face {
+  font-family: 'SFMono Nerd Font';
+  src: url('/fonts/SFMono Heavy Nerd Font Complete.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'SFMono Nerd Font';
+  src: url('/fonts/SFMono Heavy Italic Nerd Font Complete.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: fallback;
+}
