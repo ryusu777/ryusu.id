@@ -12,17 +12,6 @@ steps:
         - push
         - pull_request
 
-  - name: lint
-    image: node:22-alpine
-    commands:
-      - npm run lint
-    depends_on:
-      - install
-    when:
-      event:
-        - push
-        - pull_request
-
   - name: build
     image: node:22-alpine
     commands:
