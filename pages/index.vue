@@ -1,8 +1,6 @@
 <template>
   <main class="flex-1 flex flex-col justify-center items-center relative">
-    <!-- Blob Background -->
     <div class="absolute inset-0">
-      <!-- First blob -->
       <svg 
         viewBox="0 0 200 200" 
         xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +12,6 @@
           transform="translate(100 100) scale(1, 1)"
         />
       </svg>
-      <!-- Second blob with different color and position -->
     </div>
 
     <img src="~/assets/svg/logo.svg" class="h-16 md:h-32 transition-all duration-100 ease-in-out" />
@@ -25,7 +22,6 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
 
-// Array of different blob paths
 const blobPaths = [
   "M23.6,-41.2C31.9,-36.1,40.9,-32.4,53.7,-25.8C66.5,-19.2,83.1,-9.6,82.2,-0.5C81.3,8.5,62.8,17,49.3,22.6C35.9,28.1,27.5,30.7,20.2,36.9C12.8,43.2,6.4,53.3,-1.2,55.4C-8.8,57.4,-17.6,51.5,-28,47C-38.5,42.5,-50.6,39.4,-62.7,31.8C-74.8,24.1,-86.9,12.1,-88.2,-0.8C-89.6,-13.6,-80.1,-27.2,-70.7,-39.5C-61.3,-51.9,-52,-62.9,-40.3,-66C-28.5,-69,-14.2,-64,-3.3,-58.3C7.7,-52.6,15.3,-46.2,23.6,-41.2Z",
   "M34.6,-56.4C47.2,-52.7,61.3,-48.1,64.8,-38.6C68.3,-29.1,61.1,-14.5,59.4,-1C57.6,12.5,61.3,25,58,34.8C54.7,44.6,44.3,51.7,33.5,51.9C22.6,52.1,11.3,45.4,-1.5,48C-14.4,50.7,-28.8,62.7,-41,63.3C-53.2,63.9,-63.3,53.1,-69.2,40.7C-75,28.2,-76.7,14.1,-73,2.2C-69.3,-9.8,-60.1,-19.6,-55,-33.4C-49.9,-47.1,-48.7,-64.8,-40.2,-70.9C-31.7,-77,-15.9,-71.4,-2.4,-67.2C11,-63,22,-60.1,34.6,-56.4Z",
@@ -37,7 +33,6 @@ const currentIndex = ref(0);
 const currentPath = computed(() => blobPaths[currentIndex.value]);
 
 onMounted(() => {
-  
   setInterval(() => {
     currentIndex.value = (currentIndex.value + 1) % blobPaths.length;
   }, 3000);
