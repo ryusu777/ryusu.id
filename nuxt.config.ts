@@ -25,6 +25,18 @@ export default defineNuxtConfig({
           type: 'font/otf',
           crossorigin: 'anonymous',
           href: '/fonts/SFMono Medium Nerd Font Complete.otf'
+        },
+        {
+          rel: 'icon',
+          type: 'image/svg+xml',
+          href: '/svg/logo.svg',
+          media: '(prefers-color-scheme: dark)'
+        },
+        {
+          rel: 'icon',
+          type: 'image/svg+xml',
+          href: '/svg/logo-dark.svg',
+          media: '(prefers-color-scheme: light)'
         }
       ]
     }

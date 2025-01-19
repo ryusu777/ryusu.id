@@ -14,7 +14,7 @@
       </svg>
     </div>
 
-    <img src="~/assets/svg/logo.svg" class="h-16 md:h-32 transition-all duration-100 ease-in-out" />
+    <img src="/svg/logo.svg" class="h-16 md:h-32 transition-all duration-100 ease-in-out" />
     <p class="text-bold md:text-3xl text-xl transition-all duration-100 ease-in-out">Coming Soon...</p>
   </main>
 </template>
