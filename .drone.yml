@@ -32,8 +32,13 @@ steps:
         from_secret: ssh_username
       key:
         from_secret: ssh_key
+      environment:
+        SSH_KEY:
+          from_secret: git_ssh_key
       port: 22
       script:
+        - eval "$(ssh-agent -s)"
+        - ssh-add ~/.ssh/ryusu.id.deploy
         - cd ~/docker-composes/landing-page/ryusu.id
         - git pull
         - sudo docker-compose down
