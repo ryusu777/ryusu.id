@@ -51,7 +51,7 @@ steps:
         - sudo docker-compose up --build -d
     when:
       branch:
-        - main
+        - master
       event:
         - push
 
@@ -62,7 +62,7 @@ volumes:
 
 trigger:
   branch:
-    - main
+    - master
   event:
     - push
     - pull_request
