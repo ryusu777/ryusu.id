@@ -32,6 +32,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Smooth scrolling for the whole page */

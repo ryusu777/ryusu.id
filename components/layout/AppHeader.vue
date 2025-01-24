@@ -1,45 +1,80 @@
 <template>
-  <header class="header"> 
-    <div class="container mx-auto px-4">
-      <nav class="flex items-center justify-between h-16">
-        <!-- Logo -->
-        <div class="flex items-center">
-          <NuxtLink to="/" class="text-xl font-bold text-gray-900 dark:text-white">
-            <img src="/svg/logo.svg" class="h-7 transition-all duration-100 ease-in-out" />
-          </NuxtLink>
-        </div>
-
-        <!-- Navigation Links -->
-        <div class="hidden md:flex space-x-8">
-          <NuxtLink to="/" class="nav-link">
-            Home
-          </NuxtLink>
-          <NuxtLink to="/about" class="nav-link">
-            About
-          </NuxtLink>
-          <NuxtLink to="/projects" class="nav-link">
-            Projects
-          </NuxtLink>
-          <NuxtLink to="/contact" class="nav-link">
-            Contact
-          </NuxtLink>
-        </div>
-      </nav>
-    </div>
+  <header class="header">
+    <nav class="flex items-center justify-between p-1.5">
+      <!-- Navigation Links -->
+      <div class="hidden md:flex space-x-1 relative">
+        <div class="absolute transition-all duration-300 ease-in-out rounded-lg bg-primary/10 dark:bg-primary/10" :style="activeBackgroundStyle" />
+        <NuxtLink to="/" class="nav-link">
+          Home
+        </NuxtLink>
+        <NuxtLink to="/about" class="nav-link">
+          About
+        </NuxtLink>
+        <NuxtLink to="/projects" class="nav-link">
+          Projects
+        </NuxtLink>
+        <NuxtLink to="/contact" class="nav-link">
+          Contact
+        </NuxtLink>
+      </div>
+    </nav>
   </header>
 </template>
 
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+const activeLink = ref<HTMLElement | null>(null);
+
+const activeBackgroundStyle = computed(() => {
+  if (!activeLink.value) return { width: '0px', height: '0px', transform: 'translateX(0)' };
+  const { width, height, left } = activeLink.value.getBoundingClientRect();
+  const parentLeft = activeLink.value.parentElement!.getBoundingClientRect().left;
+  return {
+    width: `${width}px`,
+    height: `${height}px`,
+    transform: `translateX(${left - parentLeft}px)`
+  };
+});
+
+// Update active link reference when route changes
+watch(() => route.path, async () => {
+  await nextTick();
+  activeLink.value = document.querySelector('.router-link-active');
+});
+
+onMounted(() => {
+  activeLink.value = document.querySelector('.router-link-active');
+});
+</script>
+
 <style scoped lang="scss">
 .nav-link {
-  @apply text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors tracking-[3.5px];
+  @apply text-gray-600 dark:text-gray-300;
+  @apply hover:text-primary dark:hover:text-primary;
+  @apply transition-all;
+  @apply tracking-[3.5px];
+  @apply px-4 py-2 rounded-lg;
+  @apply relative; // Add this
+  &.router-link-active {
+    
+    @apply text-primary dark:text-primary;
+  }
 }
 
 .header {
-  @apply fixed w-full top-0 z-50;
-  @apply backdrop-blur-sm;
-  @apply bg-white/75 dark:bg-gray-900/75;
-  @apply supports-[backdrop-filter]:bg-white/50 dark:supports-[backdrop-filter]:bg-gray-900/50;
+  @apply w-fit;
+  @apply top-[40px] z-10;
+  @apply backdrop-blur-md;
+  @apply bg-white/30 dark:bg-gray-900/30;
+  @apply backdrop-saturate-150;
   @apply relative;
+  @apply rounded-2xl;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  @apply flex justify-center;
 
   &::after {
     content: '';
