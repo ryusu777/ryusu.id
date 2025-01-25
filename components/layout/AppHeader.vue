@@ -2,16 +2,13 @@
   <header class="header">
     <nav class="flex items-center justify-between p-1.5">
       <!-- Navigation Links -->
-      <div class="hidden md:flex space-x-1 relative">
-        <div class="absolute transition-all duration-300 ease-[cubic-bezier(0.22, 1, 0.36, 1)] rounded-lg bg-primary/10 dark:bg-primary/10" :style="activeBackgroundStyle" />
+      <div class="flex space-x-1 relative">
+        <div class="absolute transition-all duration-300 ease-[cubic-bezier(.7, 0, .3, 1)] rounded-lg bg-primary/10 dark:bg-primary/10" :style="activeBackgroundStyle" />
         <NuxtLink to="/" class="nav-link">
           Home
         </NuxtLink>
         <NuxtLink to="/about" class="nav-link">
           About
-        </NuxtLink>
-        <NuxtLink to="/projects" class="nav-link">
-          Projects
         </NuxtLink>
         <NuxtLink to="/contact" class="nav-link">
           Contact
@@ -55,11 +52,11 @@ onMounted(() => {
   @apply text-gray-600 dark:text-gray-300;
   @apply hover:text-primary dark:hover:text-primary;
   @apply transition-all;
-  @apply tracking-[3.5px];
+  @apply md:tracking-[3.5px];
   @apply px-4 py-2 rounded-lg;
   @apply relative; // Add this
+
   &.router-link-active {
-    
     @apply text-primary dark:text-primary;
   }
 }
@@ -70,7 +67,7 @@ onMounted(() => {
   @apply backdrop-blur-md;
   @apply bg-white/30 dark:bg-gray-900/30;
   @apply backdrop-saturate-150;
-  @apply relative;
+  @apply fixed;
   @apply rounded-2xl;
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);

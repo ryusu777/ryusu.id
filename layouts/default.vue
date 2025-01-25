@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import AppHeader from '@/components/layout/AppHeader.vue'
-import AnimatedBackground from '@/components/AnimatedBackground.vue'
 </script>
 
 <template>
   <div id="app" class="min-h-screen flex flex-col justify-center items-center relative">
-    <AnimatedBackground />
     <AppHeader></AppHeader>
     <slot />
     <footer></footer>

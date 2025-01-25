@@ -1,14 +1,18 @@
 <template>
   <main class="flex-1 flex flex-col justify-center items-center relative">
-    <h1 class="text-9xl font-bold">Hi</h1>
-    <p class="text-bold md:text-3xl text-xl typing-animation" ref="typingText">
-      <span class="typing-cursor">{{ displayText }}</span>
-    </p>
+    <section class="min-h-screen flex flex-col justify-center items-center relative">
+      <AnimatedBackground />
+      <h1 class="text-9xl font-bold">Hi</h1>
+      <p class="text-bold md:text-3xl text-xl typing-animation" ref="typingText">
+        <span class="typing-cursor">{{ displayText }}</span>
+      </p>
+    </section>
   </main>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue';
+import AnimatedBackground from '@/components/AnimatedBackground.vue';
 
 onMounted(() => {
   typeText();

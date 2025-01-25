@@ -1,16 +1,25 @@
+<script setup lang="ts">
+import Tooltip from '@/components/ui/Tooltip.vue';
+
+</script>
+
 <template>
-  <main class="flex-1 flex flex-col items-center relative py-20 px-4 md:px-8 overflow-hidden">
+  <main class="flex-1 flex flex-col justify-start items-center relative pt-32 px-4 pb-4 sm:pb-4 lg:pb-8 sm:px-6 lg:px-8">
     <div class="max-w-6xl w-full">
       <!-- Bento Grid Layout -->
       <div class="bento-grid grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-min">
       <!-- Hero Section - Spans 2 columns -->
-      <section class="bento-section md:col-span-2 group">
-        <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-primary-400 bg-clip-text text-transparent mb-4">
-          Software Developer & Technical Lead
-        </h1>
-        <p class="text-lg section-text leading-relaxed">
-          Specialized in building sophisticated web-based systems with a focus on scalable architecture and engineering excellence.
-        </p>
+      <section class="bento-section md:col-span-2 group relative overflow-hidden">
+        <div class="absolute -left-10 -top-10 w-[200px] h-[200px] bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+        <div class="absolute -right-10 -bottom-10 w-[200px] h-[200px] bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
+        <div class="relative z-10">
+          <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">
+            Software Developer & Technical Lead
+          </h1>
+          <p class="text-lg section-text leading-relaxed">
+            Specialized in building sophisticated web-based systems with a focus on scalable architecture and engineering excellence.
+          </p>
+        </div>
       </section>
 
       <!-- Profile Quick Info -->
@@ -32,7 +41,7 @@
             <p class="text-gray-600 dark:text-gray-300">Scalable applications</p>
           </div>
           <div class="bento-card">
-            <h3 class="font-semibold mb-2">Cloud Architecture</h3>
+            <h3 class="font-semibold mb-2">Cloud Based Solution</h3>
             <p class="text-gray-600 dark:text-gray-300">Modern infrastructure</p>
           </div>
           <div class="bento-card">
@@ -40,21 +49,6 @@
             <p class="text-gray-600 dark:text-gray-300">Team mentoring</p>
           </div>
         </div>
-      </section>
-
-      <!-- Notable Projects - Spans 2 columns -->
-      <section class="bento-section md:col-span-2">
-        <h2 class="section-title">Notable Projects</h2>
-        <ul class="space-y-3 section-text">
-          <li class="flex items-center space-x-2">
-            <span class="w-2 h-2 rounded-full bg-primary"></span>
-            <span>Enterprise systems for automotive industry</span>
-          </li>
-          <li class="flex items-center space-x-2">
-            <span class="w-2 h-2 rounded-full bg-primary"></span>
-            <span>Microservice-based web applications</span>
-          </li>
-        </ul>
       </section>
       
       <!-- Current Focus -->
@@ -64,23 +58,55 @@
           Elevating software architecture practices, establishing robust coding standards for scalable solutions, and exploring LLM capabilities and implementations.
         </p>
       </section>
+
+      <!-- Notable Projects - Spans 2 columns -->
+      <section class="bento-section md:col-span-1">
+        <h2 class="section-title">Notable Projects</h2>
+        <ul class="space-y-3 section-text">
+          <li class="flex items-start space-x-2">
+            <span class="min-w-2 min-h-2 mt-2 rounded-full bg-primary"></span>
+            <span>Enterprise systems for automotive industry</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <span class="min-w-2 min-h-2 mt-2 rounded-full bg-primary"></span>
+            <span>Microservice-based web applications</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Technology Stack -->
+      <section class="bento-section md:col-span-1">
+        <h2 class="section-title">Skill Set</h2>
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-tag">Back-end</span>
+          <span class="skill-tag">Microservices</span>
+          <span class="skill-tag">CI/CD</span>
+          <span class="skill-tag">DevOps</span>
+          <span class="skill-tag">UI/UX</span>
+          <span class="skill-tag">Front-end</span>
+          <span class="skill-tag">Mobile</span>
+          <span class="skill-tag">Cloud</span>
+          <Tooltip text="Domain Driven Design">
+            <span class="skill-tag">DDD</span>
+          </Tooltip>
+          <span class="skill-tag">Clean Architecture</span>
+          <span class="skill-tag">Project Management</span>
+          <span class="skill-tag">Mentoring</span>
+        </div>
+      </section>
     </div>
     </div>
   </main>
 </template>
 
 <style scoped>
-.bento-grid {
-  --animation-delay: 120ms;
-}
-
 .bento-section {
-  @apply p-8 rounded-2xl border border-white/20 dark:border-white/10 
+  @apply p-[32px] rounded-[32px] border-[2px] border-white/20 dark:border-white/10 
     bg-white/10 dark:bg-white/5 backdrop-blur-md 
     hover:shadow-lg hover:shadow-primary/5 
-    hover:border-white/30 dark:hover:border-white/20 
+    hover:border-primary/30 dark:hover:border-primary/20 
     transition-all;
-  animation: fade-in-up 800ms var(--animation-delay) backwards;
+  animation: fade-in-up 400ms cubic-bezier(.7, 0, .3, 1) var(--animation-delay) backwards;
 }
 
 .bento-card {
@@ -100,19 +126,24 @@
   @apply text-gray-600 dark:text-gray-300;
 }
 
-.grid > section:nth-child(2) { --animation-delay: 240ms; }
-.grid > section:nth-child(3) { --animation-delay: 360ms; }
-.grid > section:nth-child(4) { --animation-delay: 480ms; }
-.grid > section:nth-child(5) { --animation-delay: 600ms; }
+.skill-tag {
+  @apply px-3 py-1 rounded-full text-sm bg-primary/10 text-primary cursor-default;
+}
+
+.grid > section:nth-child(2) { --animation-delay: 30ms; }
+.grid > section:nth-child(3) { --animation-delay: 100ms; }
+.grid > section:nth-child(4) { --animation-delay: 170ms; }
+.grid > section:nth-child(5) { --animation-delay: 240ms; }
+.grid > section:nth-child(6) { --animation-delay: 320ms; }
 
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(20px) scale(0.97);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 </style>
