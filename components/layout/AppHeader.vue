@@ -3,7 +3,7 @@
     <nav class="flex items-center justify-between p-1.5">
       <!-- Navigation Links -->
       <div class="hidden md:flex space-x-1 relative">
-        <div class="absolute transition-all duration-300 ease-in-out rounded-lg bg-primary/10 dark:bg-primary/10" :style="activeBackgroundStyle" />
+        <div class="absolute transition-all duration-300 ease-[cubic-bezier(0.22, 1, 0.36, 1)] rounded-lg bg-primary/10 dark:bg-primary/10" :style="activeBackgroundStyle" />
         <NuxtLink to="/" class="nav-link">
           Home
         </NuxtLink>
