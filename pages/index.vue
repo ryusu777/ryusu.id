@@ -3,39 +3,30 @@
     <section class="min-h-screen flex flex-col justify-center items-center relative">
       <AnimatedBackground />
       <h1 class="text-9xl font-bold">Hi</h1>
-      <p class="text-bold md:text-3xl text-xl typing-animation" ref="typingText">
-        <span class="typing-cursor">{{ displayText }}</span>
-      </p>
+      <p class="text-bold md:text-3xl text-xl typing-animation text-center" v-html="displayText"></p>
     </section>
   </main>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import AnimatedBackground from '@/components/AnimatedBackground.vue';
+import { useTypewriter } from '@/composables/useTypewriter';
 
-onMounted(() => {
-  typeText();
+const texts = [
+  "My name is Jose Ryu...",
+  "<br />Welcome...",
+  " to my portfolio...",
+  "<br />I'm a software engineer...",
+  "<br />This website is still on development...😢"
+];
+
+const { displayText, typeText } = useTypewriter({
+  typingSpeed: 100,
+  pauseBetweenLines: 750
 });
 
-const first = "Welcome...";
-const second = " to my portfolio...";
-const displayText = ref("");
-let currentCharIndex = 0;
-
-const typeText = () => {
-  if (currentCharIndex < first.length) {
-    displayText.value = first.substring(0, currentCharIndex + 1);
-    currentCharIndex++;
-    if (currentCharIndex === first.length) {
-      setTimeout(typeText, 1000); // Adjust typing speed here)
-      return;
-    };
-    setTimeout(typeText, 150); // Adjust typing speed here
-  } else if (currentCharIndex < first.length + second.length) {
-    displayText.value = first + second.substring(0, currentCharIndex - first.length + 1);
-    currentCharIndex++;
-    setTimeout(typeText, 150); // Adjust typing speed here
-  }
-};
+onMounted(async () => {
+  await typeText(texts);
+});
 </script>
