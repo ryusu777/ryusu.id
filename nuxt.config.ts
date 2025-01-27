@@ -5,11 +5,17 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css', '~/assets/css/fonts.css'],
   postcss: {
     plugins: {
+      'postcss-import': {},
+      'tailwindcss/nesting': {},
       tailwindcss: {},
       autoprefixer: {}
     }
   },
   app: {
+    pageTransition: { 
+      name: 'page', 
+      mode: 'out-in' 
+    },
     head: {
       link: [
         {
@@ -41,5 +47,5 @@ export default defineNuxtConfig({
       ]
     }
   },
-  modules: ['@nuxt/image']
+  modules: ['@nuxt/image', '@nuxt/icon']
 })
