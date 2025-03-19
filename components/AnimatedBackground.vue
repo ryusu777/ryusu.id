@@ -138,43 +138,66 @@
   </div>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
-@keyframes blobAppear {
-  0% {
+  @keyframes blobAppear {
+    0% {
+      opacity: 0;
+      transform: scale(0.75);
+    }
+    50% {
+      transform: scale(1.0175);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Target each blob with different animation delays */
+  g path {
+    animation: blobAppear 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
     opacity: 0;
-    transform: scale(0.75);
   }
-  50% {
-    transform: scale(1.0175);
+
+  /* Left side blobs */
+  .right-side-blob path:nth-child(6) {
+    animation-delay: 0ms;
   }
-  100% {
-    opacity: 1;
-    transform: scale(1);
+  .right-side-blob path:nth-child(5) {
+    animation-delay: 50ms;
   }
-}
+  .right-side-blob path:nth-child(4) {
+    animation-delay: 100ms;
+  }
+  .right-side-blob path:nth-child(3) {
+    animation-delay: 150ms;
+  }
+  .right-side-blob path:nth-child(2) {
+    animation-delay: 200ms;
+  }
+  .right-side-blob path:nth-child(1) {
+    animation-delay: 250ms;
+  }
 
-/* Target each blob with different animation delays */
-g path {
-  animation: blobAppear 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-  opacity: 0;
-}
-
-/* Left side blobs */
-.right-side-blob path:nth-child(6) { animation-delay: 0ms; }
-.right-side-blob path:nth-child(5) { animation-delay: 50ms; }
-.right-side-blob path:nth-child(4) { animation-delay: 100ms; }
-.right-side-blob path:nth-child(3) { animation-delay: 150ms; }
-.right-side-blob path:nth-child(2) { animation-delay: 200ms; }
-.right-side-blob path:nth-child(1) { animation-delay: 250ms; }
-
-/* Right side blobs */
-.left-side-blob path:nth-child(6) { animation-delay: 0ms; }
-.left-side-blob path:nth-child(5) { animation-delay: 50ms; }
-.left-side-blob path:nth-child(4) { animation-delay: 100ms; }
-.left-side-blob path:nth-child(3) { animation-delay: 150ms; }
-.left-side-blob path:nth-child(2) { animation-delay: 200ms; }
-.left-side-blob path:nth-child(1) { animation-delay: 250ms; }
+  /* Right side blobs */
+  .left-side-blob path:nth-child(6) {
+    animation-delay: 0ms;
+  }
+  .left-side-blob path:nth-child(5) {
+    animation-delay: 50ms;
+  }
+  .left-side-blob path:nth-child(4) {
+    animation-delay: 100ms;
+  }
+  .left-side-blob path:nth-child(3) {
+    animation-delay: 150ms;
+  }
+  .left-side-blob path:nth-child(2) {
+    animation-delay: 200ms;
+  }
+  .left-side-blob path:nth-child(1) {
+    animation-delay: 250ms;
+  }
 </style>

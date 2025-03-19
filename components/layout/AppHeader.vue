@@ -65,12 +65,12 @@
     @apply w-fit;
     @apply top-[40px] z-10;
     @apply backdrop-blur-md;
-    @apply bg-white/30 dark:bg-gray-900/30;
+    @apply bg-gray-900/50;
     @apply backdrop-saturate-150;
     @apply fixed;
     @apply rounded-2xl;
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
     @apply flex justify-center;
 
     nav {
@@ -86,13 +86,6 @@
 
       /* Exclusion blend */
       background-blend-mode: exclusion;
-    }
-
-    &::after {
-      content: '';
-      @apply absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r;
-      @apply from-transparent from-5% via-gray-200/50 via-50% to-transparent to-95%;
-      @apply dark:via-gray-800/75;
     }
   }
 </style>
