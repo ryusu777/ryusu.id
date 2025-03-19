@@ -1,20 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 export default {
- content: [
-    "./components/**/*.{js,vue,ts}",
-    "./layouts/**/*.vue",
-    "./pages/**/*.vue",
-    "./plugins/**/*.{js,ts}",
-    "./app.vue",
-    "./error.vue",
+  content: [
+    './components/**/*.{js,vue,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './app.vue',
+    './error.vue',
   ],
   theme: {
     extend: {
       colors: {
-        primary: 'hsl(320, 100%, 70%)'
+        primary: 'hsl(320, 100%, 70%)',
       },
       fontFamily: {
-        'mono': ['SFMono Nerd Font', 'monospace'],
+        mono: ['SFMono Nerd Font', 'monospace'],
       },
       fontWeight: {
         light: '300',
@@ -28,7 +28,7 @@ export default {
         'slow-spin': {
           '0%': { transform: 'translate(-50%, -50%) rotate(0deg)' },
           '100%': { transform: 'translate(-50%, -50%) rotate(360deg)' },
-        }
+        },
       },
       animation: {
         'slow-spin': 'slow-spin 20s linear infinite',
@@ -36,5 +36,4 @@ export default {
     },
   },
   plugins: [],
-}
-
+};

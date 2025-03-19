@@ -1,19 +1,21 @@
 import { ref } from 'vue';
 
-export function useTypewriter(options = {
-  typingSpeed: 150,
-  pauseBetweenLines: 1000,
-}) {
+export function useTypewriter(
+  options = {
+    typingSpeed: 150,
+    pauseBetweenLines: 1000,
+  }
+) {
   const displayText = ref('');
   let currentTextIndex = 0;
   let currentCharIndex = 0;
 
-  const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+  const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
   async function typeText(texts: string[]) {
     while (currentTextIndex < texts.length) {
       const currentText = texts[currentTextIndex];
-      
+
       // Type current text
       while (currentCharIndex < currentText.length) {
         // Check if we're at the start of an HTML tag
@@ -28,7 +30,7 @@ export function useTypewriter(options = {
             continue;
           }
         }
-        
+
         // Normal character-by-character typing for non-tag text
         displayText.value = displayText.value + currentText[currentCharIndex];
         currentCharIndex++;
@@ -54,6 +56,6 @@ export function useTypewriter(options = {
   return {
     displayText,
     typeText,
-    reset
+    reset,
   };
 }
