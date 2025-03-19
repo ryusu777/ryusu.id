@@ -8,13 +8,13 @@ export default defineNuxtConfig({
       'postcss-import': {},
       'tailwindcss/nesting': {},
       tailwindcss: {},
-      autoprefixer: {}
-    }
+      autoprefixer: {},
+    },
   },
   app: {
-    pageTransition: { 
-      name: 'page', 
-      mode: 'out-in' 
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in',
     },
     head: {
       link: [
@@ -23,29 +23,29 @@ export default defineNuxtConfig({
           as: 'font',
           type: 'font/otf',
           crossorigin: 'anonymous',
-          href: '/fonts/SFMono Regular Nerd Font Complete.otf'
+          href: '/fonts/SFMono Regular Nerd Font Complete.otf',
         },
         {
           rel: 'preload',
           as: 'font',
           type: 'font/otf',
           crossorigin: 'anonymous',
-          href: '/fonts/SFMono Medium Nerd Font Complete.otf'
+          href: '/fonts/SFMono Medium Nerd Font Complete.otf',
         },
         {
           rel: 'icon',
           type: 'image/svg+xml',
           href: '/svg/logo.svg',
-          media: '(prefers-color-scheme: dark)'
+          media: '(prefers-color-scheme: dark)',
         },
         {
           rel: 'icon',
           type: 'image/svg+xml',
           href: '/svg/logo-dark.svg',
-          media: '(prefers-color-scheme: light)'
-        }
-      ]
-    }
+          media: '(prefers-color-scheme: light)',
+        },
+      ],
+    },
   },
-  modules: ['@nuxt/image', '@nuxt/icon']
-})
+  modules: ['@nuxt/image', '@nuxt/icon'],
+});

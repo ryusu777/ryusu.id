@@ -18,7 +18,7 @@
           position === 'top' && '-top-8 left-1/2 transform -translate-x-1/2',
           position === 'bottom' && 'top-full mt-1 left-1/2 transform -translate-x-1/2',
           position === 'left' && 'right-full top-1/2 transform -translate-y-1/2 mr-1',
-          position === 'right' && 'left-full top-1/2 transform -translate-y-1/2 ml-1'
+          position === 'right' && 'left-full top-1/2 transform -translate-y-1/2 ml-1',
         ]"
       >
         {{ text }}
@@ -32,14 +32,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+  import { ref } from 'vue';
 
-const props = withDefaults(defineProps<{
-  text: string
-  position?: 'top' | 'bottom' | 'left' | 'right'
-}>(), {
-  position: 'top'
-});
+  const props = withDefaults(
+    defineProps<{
+      text: string;
+      position?: 'top' | 'bottom' | 'left' | 'right';
+    }>(),
+    {
+      position: 'top',
+    }
+  );
 
-const showTooltip = ref(false);
+  const showTooltip = ref(false);
 </script>
