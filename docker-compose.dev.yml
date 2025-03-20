@@ -1,5 +1,5 @@
 services:
-  personal-web:
+  nuxt-app:
     build:
       context: .
       dockerfile: Dockerfile
@@ -8,10 +8,12 @@ services:
       - NODE_ENV=production
       - NUXT_HOST=0.0.0.0
       - NUXT_PORT=3000
+    ports:
+      - '3000:3000'
     restart: unless-stopped
     networks:
-      - nginx-proxy
+      - nuxt-network
 
 networks:
-  nginx-proxy:
-    external: true
+  nuxt-network:
+    driver: bridge
