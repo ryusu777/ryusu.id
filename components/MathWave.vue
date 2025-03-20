@@ -18,21 +18,26 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, onMounted, onUnmounted } from 'vue';
+  import { ref, computed, onMounted, onUnmounted, shallowRef } from 'vue';
 
   const props = defineProps<{
     color: string[];
     height: number[];
     initialPhase: number[];
+    fps?: number; // Optional FPS control
   }>();
 
   const amplitude = ref(10);
   const frequency = ref(0.1);
-  const phases = ref<number[]>(props.initialPhase);
+  const phases = shallowRef<number[]>(props.initialPhase);
   let animationFrame: number | null = null;
+  let lastFrameTime = 0;
+  
+  // Frame interval in ms (default 60fps)
+  const frameInterval = computed(() => 1000 / (props.fps || 60));
 
-  // Pre-compute wave point generators for each height
-  const waveGenerators = props.height.map((height) => {
+  // Memoize wave point generators for better performance
+  const waveGenerators = computed(() => props.height.map((height) => {
     const segments = 10;
     const points: { x: number; y: (phase: number) => number }[] = [];
 
@@ -48,10 +53,10 @@
     }
 
     return points;
-  });
+  }));
 
   const wavePaths = computed(() => {
-    return waveGenerators.map((generator, index) => {
+    return waveGenerators.value.map((generator, index) => {
       const currentPhase = phases.value[index];
       const points = generator.map(point => ({
         x: point.x,
@@ -85,15 +90,17 @@
     });
   });
 
-  // Animation function
-  const animate = () => {
-    // Update all phases
-    phases.value = phases.value.map((phase) => phase + 0.01);
+  // Optimized animation function with FPS control
+  const animate = (timestamp: number) => {
+    if (!lastFrameTime || timestamp - lastFrameTime >= frameInterval.value) {
+      phases.value = phases.value.map((phase) => phase + 0.01);
+      lastFrameTime = timestamp;
+    }
     animationFrame = requestAnimationFrame(animate);
   };
 
   onMounted(() => {
-    animate();
+    animate(performance.now());
   });
 
   onUnmounted(() => {
@@ -110,5 +117,11 @@
     position: absolute;
     left: 0;
     right: 0;
+    will-change: transform; // Optimize rendering performance
+    transform: translateZ(0); // Force GPU acceleration
+  }
+
+  .wave {
+    will-change: d; // Optimize path animation
   }
 </style>
