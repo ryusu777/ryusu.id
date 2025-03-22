@@ -12,7 +12,7 @@ let p5Instance: p5 | null = null
 // Configuration for waves
 const config = {
   graphPeriod: 360,
-  numSegments: 20,
+  numSegments: 11,
   noiseAplitude: 10,
 }
 
@@ -33,7 +33,7 @@ const sketch = (p: p5) => {
     const controlPoints = [];
     const segmentLength = waveLength / config.numSegments;
     
-    let angle = (frameCount * 0.5 + params.phase) % 360;
+    let angle = (frameCount * 1.5 + params.phase) % 360;
     
     // Calculate control points at segment boundaries
     for (let i = 0; i <= config.numSegments; i++) {
@@ -92,25 +92,41 @@ const sketch = (p: p5) => {
     
     // Example of multiple waves with different parameters
     generateWave({
-      y: 180,
-      amplitude: 7,
+      y: 320,
+      amplitude: 15,
+      phase: 0,
+      color: '#353057',
+      reversed: false
+    }, p.frameCount);
+
+    generateWave({
+      y: 260,
+      amplitude: 15,
+      phase: 90,
+      color: '#583d73',
+      reversed: false
+    }, p.frameCount);
+        
+    generateWave({
+      y: 200,
+      amplitude: 15,
       phase: 0,
       color: '#84488c',
       reversed: false
     }, p.frameCount);
 
     generateWave({
-      y: 130,
-      amplitude: 7,
-      phase: 10,
+      y: 140,
+      amplitude: 15,
+      phase: 90,
       color: '#b34f9e',
-      reversed: true
+      reversed: false
     }, p.frameCount);
     
     generateWave({
       y: 70,
-      amplitude: 7,
-      phase: 20,
+      amplitude: 15,
+      phase: 150,
       color: '#cd52a3',
       reversed: false
     }, p.frameCount);
