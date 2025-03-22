@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  import Tooltip from '@/components/ui/Tooltip.vue';
-  import AnimatedLayeredBackground from '~/components/AnimatedLayeredBackground.vue';
+import Tooltip from '@/components/ui/Tooltip.vue';
+import P5Background from '~/components/P5Background.vue';
 </script>
 
 <template>
   <div class="w-full">
-    <AnimatedLayeredBackground class="fixed inset-0 w-full" />
+    <P5Background class="fixed inset-0 w-full" />
 
     <main
       class="flex-1 flex flex-col justify-start items-center relative pt-32 px-4 pb-4 sm:pb-4 lg:pb-8 sm:px-6 lg:px-8"
@@ -123,7 +123,7 @@
     bg-gray-900/40
     hover:border-primary/30 dark:hover:border-primary/20 
     transition-all;
-    animation: fade-in-up 400ms cubic-bezier(0.7, 0, 0.3, 1) var(--animation-delay) backwards;
+    animation: fade-in-up 1200ms cubic-bezier(0.42, 0, 0.58, 1.4) var(--animation-delay) backwards;
   }
 
   .bento-card {
@@ -147,30 +147,47 @@
     @apply px-3 py-1 rounded-full text-sm bg-primary/10 text-primary cursor-default;
   }
 
-  .grid > section:nth-child(2) {
+  .grid > section:nth-child(1) {
     --animation-delay: 30ms;
   }
-  .grid > section:nth-child(3) {
+  .grid > section:nth-child(2) {
     --animation-delay: 100ms;
   }
-  .grid > section:nth-child(4) {
+  .grid > section:nth-child(3) {
     --animation-delay: 170ms;
   }
-  .grid > section:nth-child(5) {
+  .grid > section:nth-child(4) {
     --animation-delay: 240ms;
   }
-  .grid > section:nth-child(6) {
+  .grid > section:nth-child(5) {
     --animation-delay: 320ms;
+  }
+  .grid > section:nth-child(6) {
+    --animation-delay: 390ms;
   }
 
   @keyframes fade-in-up {
-    from {
+    0% {
       opacity: 0;
-      transform: translateY(20px) scale(0.97);
+      transform: translateY(-50px) scale(0.97);
     }
-    to {
+
+    60% {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateY(5px) scale(1.02);
+    }
+
+    80% {
+      transform: translateY(-2px) scale(0.99);
+    }
+
+    90% {
+      transform: translateY(1px) scale(1.01);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
   }
 </style>
