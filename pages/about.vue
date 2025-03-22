@@ -5,7 +5,12 @@ import P5Background from '~/components/P5Background.vue';
 
 <template>
   <div class="w-full">
-    <P5Background class="fixed inset-0 w-full" />
+    <ClientOnly>
+      <P5Background class="fixed inset-0 top-0" />
+      <template #fallback>
+        <div>Loading...</div>
+      </template>
+    </ClientOnly>
 
     <main
       class="flex-1 flex flex-col justify-start items-center relative pt-32 px-4 pb-4 sm:pb-4 lg:pb-8 sm:px-6 lg:px-8"

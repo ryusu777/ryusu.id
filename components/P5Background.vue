@@ -88,6 +88,7 @@ const sketch = (p: p5) => {
   
   p.draw = () => {
     p.noStroke()
+    p.background('#141a29');
     
     // Example of multiple waves with different parameters
     generateWave({
