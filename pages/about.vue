@@ -19,14 +19,8 @@ import P5Background from '~/components/P5Background.vue';
         <!-- Bento Grid Layout -->
         <div class="bento-grid grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-min">
           <!-- Hero Section - Spans 2 columns -->
-          <section class="bento-section md:col-span-2 group relative overflow-hidden">
-            <div
-              class="absolute -left-10 -top-10 w-[200px] h-[200px] bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70"
-            ></div>
-            <div
-              class="absolute -right-10 -bottom-10 w-[200px] h-[200px] bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70"
-            ></div>
-            <div class="relative z-10">
+          <section class="bento-section md:col-span-2 bg-primary/5 dark:bg-primary/5">
+            <div class="relative">
               <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">
                 Software Developer & Technical Lead
               </h1>
@@ -128,7 +122,21 @@ import P5Background from '~/components/P5Background.vue';
     bg-gray-900/40
     hover:border-primary/30 dark:hover:border-primary/20 
     transition-all;
-    animation: fade-in-up 1200ms cubic-bezier(0.42, 0, 0.58, 1.4) var(--animation-delay) backwards;
+    transform: scale(0.95);
+    animation: fade-in-up 500ms var(--animation-delay) ease-out forwards;
+  }
+
+  .bento-section::after {
+    content: '';
+    z-index: 1;
+    @apply rounded-[32px];
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(12px);
+    animation: blur-remove 2s var(--animation-delay) forwards;
   }
 
   .bento-card {
@@ -171,28 +179,29 @@ import P5Background from '~/components/P5Background.vue';
     --animation-delay: 390ms;
   }
 
-  @keyframes fade-in-up {
+  @keyframes blur-remove {
     0% {
-      opacity: 0;
-      transform: translateY(-50px) scale(0.97);
-    }
-
-    60% {
+      backdrop-filter: blur(12px);
       opacity: 1;
-      transform: translateY(5px) scale(1.02);
-    }
-
-    80% {
-      transform: translateY(-2px) scale(0.99);
-    }
-
-    90% {
-      transform: translateY(1px) scale(1.01);
     }
 
     100% {
-      opacity: 1;
-      transform: translateY(0) scale(1);
+      backdrop-filter: blur(12px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes fade-in-up {
+    0% {
+      transform: scale(0.95);
+    }
+
+    75% {
+      transform: translateX(-5px) scale(1);
+    }
+
+    100% {
+      transform: translateX(0);
     }
   }
 </style>
