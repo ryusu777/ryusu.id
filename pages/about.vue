@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import Tooltip from '@/components/ui/Tooltip.vue';
-import P5Background from '~/components/P5Background.vue';
+import type PaperJsBackground from '~/components/PaperJsBackground.vue';
 </script>
 
 <template>
   <div class="w-full">
     <ClientOnly>
-      <P5Background class="fixed inset-0 top-0" />
+      <PaperJsBackground class="fixed inset-0 top-0" />
       <template #fallback>
         <div>Loading...</div>
       </template>
