@@ -182,7 +182,7 @@ import type PaperJsBackground from '~/components/PaperJsBackground.vue';
   @keyframes blur-remove {
     0% {
       backdrop-filter: blur(12px);
-      opacity: 1;
+      opacity: 0;
     }
 
     100% {
