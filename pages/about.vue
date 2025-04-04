@@ -5,12 +5,12 @@ import type PaperJsBackground from '~/components/PaperJsBackground.vue';
 
 <template>
   <div class="w-full">
-    <ClientOnly>
-      <PaperJsBackground class="fixed inset-0 top-0" />
-      <template #fallback>
-        <div>Loading...</div>
-      </template>
-    </ClientOnly>
+    <!-- <ClientOnly> -->
+    <!--   <PaperJsBackground class="fixed inset-0 top-0" /> -->
+    <!--   <template #fallback> -->
+    <!--     <div>Loading...</div> -->
+    <!--   </template> -->
+    <!-- </ClientOnly> -->
 
     <main
       class="flex-1 flex flex-col justify-start items-center relative pt-32 px-4 pb-4 sm:pb-4 lg:pb-8 sm:px-6 lg:px-8"
@@ -118,31 +118,17 @@ import type PaperJsBackground from '~/components/PaperJsBackground.vue';
       inset 0 0 0 0.5px #656063,
       0 0 0 0.5px #787174;
     @apply p-[32px] rounded-[32px]
-    backdrop-blur-md 
     bg-gray-900/40
     hover:border-primary/30 dark:hover:border-primary/20 
     transition-all;
-    transform: scale(0.95);
-    animation: fade-in-up 500ms var(--animation-delay) ease-out forwards;
-  }
-
-  .bento-section::after {
-    content: '';
-    z-index: 1;
-    @apply rounded-[32px];
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(12px);
-    animation: blur-remove 2s var(--animation-delay) forwards;
+    animation: fade-in-up 1000ms var(--animation-delay) cubic-bezier(.27,.72,.48,.92) forwards;
+    opacity: 0;
+    transform: translateY(-20px) translateX(20px);
   }
 
   .bento-card {
     @apply p-4 rounded-xl 
     bg-gray-900/50
-    backdrop-blur-sm 
     border border-white/20 dark:border-white/10 
     hover:border-white/30 dark:hover:border-white/20 
     transition-all;
@@ -161,47 +147,37 @@ import type PaperJsBackground from '~/components/PaperJsBackground.vue';
   }
 
   .grid > section:nth-child(1) {
-    --animation-delay: 30ms;
+    --animation-delay: 0ms;
   }
   .grid > section:nth-child(2) {
     --animation-delay: 100ms;
   }
   .grid > section:nth-child(3) {
-    --animation-delay: 170ms;
+    --animation-delay: 200ms;
   }
   .grid > section:nth-child(4) {
-    --animation-delay: 240ms;
+    --animation-delay: 300ms;
   }
   .grid > section:nth-child(5) {
-    --animation-delay: 320ms;
+    --animation-delay: 400ms;
   }
   .grid > section:nth-child(6) {
-    --animation-delay: 390ms;
-  }
-
-  @keyframes blur-remove {
-    0% {
-      backdrop-filter: blur(12px);
-      opacity: 0;
-    }
-
-    100% {
-      backdrop-filter: blur(12px);
-      opacity: 0;
-    }
+    --animation-delay: 500ms;
   }
 
   @keyframes fade-in-up {
     0% {
-      transform: scale(0.95);
+      transform: translateY(-20px) translateX(20px);
+      opacity: 0;
     }
 
-    75% {
-      transform: translateX(-5px) scale(1);
+    20% {
+      transform: translateY(0) translateX(-10px);
     }
 
     100% {
-      transform: translateX(0);
+      transform: translateY(0) translateX(0);
+      opacity: 1;
     }
   }
 </style>
