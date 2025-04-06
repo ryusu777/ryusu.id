@@ -33,77 +33,87 @@ import type PaperJsBackground from '~/components/PaperJsBackground.vue';
 
           <!-- Profile Quick Info -->
           <section class="bento-section bg-primary/5 dark:bg-primary/5">
-            <h2 class="text-2xl font-semibold mb-4">Current Role</h2>
-            <p class="text-gray-600 dark:text-gray-300">
-              Technical Lead focusing on architecture and coding standards
-            </p>
+            <div class="relative">
+              <h2 class="text-2xl font-semibold mb-4">Current Role</h2>
+              <p class="text-gray-600 dark:text-gray-300">
+                Technical Lead focusing on architecture and coding standards
+              </p>
+            </div>
           </section>
 
           <!-- Skills Grid - Spans 3 columns -->
           <section class="bento-section md:col-span-3">
-            <h2 class="text-2xl font-semibold mb-6">Technical Expertise</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div class="bento-card">
-                <h3 class="font-semibold mb-2">Full-Stack Development</h3>
-                <p class="text-gray-600 dark:text-gray-300">Modern web applications</p>
-              </div>
-              <div class="bento-card">
-                <h3 class="font-semibold mb-2">Distributed Systems</h3>
-                <p class="text-gray-600 dark:text-gray-300">Scalable applications</p>
-              </div>
-              <div class="bento-card">
-                <h3 class="font-semibold mb-2">Cloud Based Solution</h3>
-                <p class="text-gray-600 dark:text-gray-300">Modern infrastructure</p>
-              </div>
-              <div class="bento-card">
-                <h3 class="font-semibold mb-2">Technical Leadership</h3>
-                <p class="text-gray-600 dark:text-gray-300">Team mentoring</p>
+            <div class="relative">
+              <h2 class="text-2xl font-semibold mb-6">Technical Expertise</h2>
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="bento-card">
+                  <h3 class="font-semibold mb-2">Full-Stack Development</h3>
+                  <p class="text-gray-600 dark:text-gray-300">Modern web applications</p>
+                </div>
+                <div class="bento-card">
+                  <h3 class="font-semibold mb-2">Distributed Systems</h3>
+                  <p class="text-gray-600 dark:text-gray-300">Scalable applications</p>
+                </div>
+                <div class="bento-card">
+                  <h3 class="font-semibold mb-2">Cloud Based Solution</h3>
+                  <p class="text-gray-600 dark:text-gray-300">Modern infrastructure</p>
+                </div>
+                <div class="bento-card">
+                  <h3 class="font-semibold mb-2">Technical Leadership</h3>
+                  <p class="text-gray-600 dark:text-gray-300">Team mentoring</p>
+                </div>
               </div>
             </div>
           </section>
 
           <!-- Current Focus -->
           <section class="bento-section bg-gray-50 dark:bg-gray-800/50">
-            <h2 class="section-title">Current Focus</h2>
-            <p class="section-text">
-              Elevating software architecture practices, establishing robust coding standards for
-              scalable solutions, and exploring LLM capabilities and implementations.
-            </p>
+            <div class="relative">
+              <h2 class="section-title">Current Focus</h2>
+              <p class="section-text">
+                Elevating software architecture practices, establishing robust coding standards for
+                scalable solutions, and exploring LLM capabilities and implementations.
+              </p>
+            </div>
           </section>
 
           <!-- Notable Projects - Spans 2 columns -->
           <section class="bento-section md:col-span-1">
-            <h2 class="section-title">Notable Projects</h2>
-            <ul class="space-y-3 section-text">
-              <li class="flex items-start space-x-2">
-                <span class="min-w-2 min-h-2 mt-2 rounded-full bg-primary"></span>
-                <span>Enterprise systems for automotive industry</span>
-              </li>
-              <li class="flex items-start space-x-2">
-                <span class="min-w-2 min-h-2 mt-2 rounded-full bg-primary"></span>
-                <span>Microservice-based web applications</span>
-              </li>
-            </ul>
+            <div class="relative">
+              <h2 class="section-title">Notable Projects</h2>
+              <ul class="space-y-3 section-text">
+                <li class="flex items-start space-x-2">
+                  <span class="min-w-2 min-h-2 mt-2 rounded-full bg-primary"></span>
+                  <span>Enterprise systems for automotive industry</span>
+                </li>
+                <li class="flex items-start space-x-2">
+                  <span class="min-w-2 min-h-2 mt-2 rounded-full bg-primary"></span>
+                  <span>Microservice-based web applications</span>
+                </li>
+              </ul>
+            </div>
           </section>
 
           <!-- Technology Stack -->
           <section class="bento-section md:col-span-1">
-            <h2 class="section-title">Skill Set</h2>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-tag">Back-end</span>
-              <span class="skill-tag">Microservices</span>
-              <span class="skill-tag">CI/CD</span>
-              <span class="skill-tag">DevOps</span>
-              <span class="skill-tag">UI/UX</span>
-              <span class="skill-tag">Front-end</span>
-              <span class="skill-tag">Mobile</span>
-              <span class="skill-tag">Cloud</span>
-              <Tooltip text="Domain Driven Design">
-                <span class="skill-tag">DDD</span>
-              </Tooltip>
-              <span class="skill-tag">Clean Architecture</span>
-              <span class="skill-tag">Project Management</span>
-              <span class="skill-tag">Mentoring</span>
+            <div class="relative">
+              <h2 class="section-title">Skill Set</h2>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag">Back-end</span>
+                <span class="skill-tag">Microservices</span>
+                <span class="skill-tag">CI/CD</span>
+                <span class="skill-tag">DevOps</span>
+                <span class="skill-tag">UI/UX</span>
+                <span class="skill-tag">Front-end</span>
+                <span class="skill-tag">Mobile</span>
+                <span class="skill-tag">Cloud</span>
+                <Tooltip text="Domain Driven Design">
+                  <span class="skill-tag">DDD</span>
+                </Tooltip>
+                <span class="skill-tag">Clean Architecture</span>
+                <span class="skill-tag">Project Management</span>
+                <span class="skill-tag">Mentoring</span>
+              </div>
             </div>
           </section>
         </div>
@@ -121,7 +131,7 @@ import type PaperJsBackground from '~/components/PaperJsBackground.vue';
     bg-gray-900/40
     hover:border-primary/30 dark:hover:border-primary/20 
     transition-all;
-    animation: fade-in-up 1000ms var(--animation-delay) cubic-bezier(.27,.72,.48,.92) forwards;
+    animation: fade-in-up 1200ms var(--animation-delay) cubic-bezier(.22,.64,.47,1) forwards;
     opacity: 0;
     transform: translateY(-20px) translateX(20px);
   }
@@ -132,6 +142,11 @@ import type PaperJsBackground from '~/components/PaperJsBackground.vue';
     border border-white/20 dark:border-white/10 
     hover:border-white/30 dark:hover:border-white/20 
     transition-all;
+  }
+
+  .bento-section > div {
+    @apply blur-lg;
+    animation: blur-remove 800ms var(--animation-delay) cubic-bezier(.22,.64,.47,1) forwards;
   }
 
   .section-title {
@@ -171,13 +186,23 @@ import type PaperJsBackground from '~/components/PaperJsBackground.vue';
       opacity: 0;
     }
 
-    20% {
+    30% {
       transform: translateY(0) translateX(-10px);
     }
 
     100% {
       transform: translateY(0) translateX(0);
       opacity: 1;
+    }
+  }
+
+  @keyframes blur-remove {
+    0% {
+      @apply blur-lg scale-[0.9] translate-y-[-40px];
+    }
+
+    100% {
+      @apply blur-none scale-[1] translate-y-0;
     }
   }
 </style>
