@@ -32,19 +32,13 @@ steps:
         from_secret: ssh_username
       key:
         from_secret: ssh_key
-      environment:
-        SSH_KEY:
-          from_secret: git_ssh_key
       port: 22
       script:
-        - eval "$(ssh-agent -s)"
-        - ssh-add ~/.ssh/ryusu.id.deploy
-        - cd ~/docker-composes/landing-page/ryusu.id
+        - cd ~/projects/ryusu.id
         - git pull
-        - sudo docker build -t localhost:5000/ryusu.id:latest .
-        - sudo docker push localhost:5000/ryusu.id:latest
-        - kubectl apply -f .kube/deployment.yaml
-        - kubectl rollout restart deployment personal-web -n ryusu-id
+        - sudo docker build -t ryusu777/ryusu.id:latest .
+        - sudo docker push ryusu777/ryusu.id:latest
+        - kubectl rollout restart deployment web -n ryusu-id
     depends_on:
       - build
     when:
