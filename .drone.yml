@@ -1,5 +1,5 @@
 kind: pipeline
-type: docker
+type: kubernetes
 name: nuxt-pipeline
 
 steps:
@@ -22,30 +22,23 @@ steps:
       event:
         - push
         - pull_request
+        - custom
 
   - name: deploy
-    image: appleboy/drone-ssh
-    settings:
-      host:
-        from_secret: ssh_host
-      username:
-        from_secret: ssh_username
-      key:
-        from_secret: ssh_key
-      port: 22
-      script:
-        - cd ~/projects/ryusu.id
-        - git pull
-        - sudo docker build -t ryusu777/ryusu.id:latest .
-        - sudo docker push ryusu777/ryusu.id:latest
-        - kubectl rollout restart deployment web -n ryusu-id
+    image: bitnami/kubectl:latest
+    commands:
+      - kubectl rollout restart deployment web -n ryusu-id
     depends_on:
       - build
+    environment:
+      KUBECONFIG:
+        from_secret: kubeconfig
     when:
       branch:
         - master
       event:
         - push
+        - custom
 
 trigger:
   branch:
