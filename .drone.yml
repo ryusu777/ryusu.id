@@ -1,6 +1,7 @@
 kind: pipeline
 type: kubernetes
 name: nuxt-pipeline
+service_account_name: drone-runner
 
 steps:
   - name: install
