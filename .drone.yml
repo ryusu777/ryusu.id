@@ -32,7 +32,7 @@ steps:
       - build
     volumes:
       - name: kubeconfig
-        path: /.kube/config
+        path: /.kube/
     when:
       branch:
         - master
