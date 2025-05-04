@@ -1,7 +1,6 @@
 kind: pipeline
 type: kubernetes
 name: nuxt-pipeline
-service_account_name: drone-runner
 
 steps:
   - name: install
@@ -31,15 +30,20 @@ steps:
       - kubectl rollout restart deployment web -n ryusu-id
     depends_on:
       - build
-    environment:
-      KUBECONFIG:
-        from_secret: kubeconfig
+    volumes:
+      - name: kubeconfig
+        path: /.kube/config
     when:
       branch:
         - master
       event:
         - push
         - custom
+
+volumes:
+  - name: kubeconfig
+    path: 
+      from_secret: kubeconfig_path
 
 trigger:
   branch:
