@@ -16,14 +16,10 @@
     "@nuxt/image": "^1.9.0",
     "@vueuse/core": "^13.0.0",
     "nuxt": "^3.15.2",
-    "p5": "^1.11.3",
-    "paper": "^0.12.18",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
-    "@types/p5": "^1.7.6",
-    "@types/paper": "^0.11.14",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.1",
     "postcss-import": "^16.1.0",
