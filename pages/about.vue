@@ -144,11 +144,6 @@ import type PaperJsBackground from '~/components/PaperJsBackground.vue';
     transition-all;
   }
 
-  .bento-section > div {
-    @apply blur-lg;
-    animation: blur-remove 800ms var(--animation-delay) cubic-bezier(.22,.64,.47,1) forwards;
-  }
-
   .section-title {
     @apply text-2xl font-semibold mb-4;
   }
@@ -196,13 +191,4 @@ import type PaperJsBackground from '~/components/PaperJsBackground.vue';
     }
   }
 
-  @keyframes blur-remove {
-    0% {
-      @apply blur-lg scale-[0.9] translate-y-[-40px];
-    }
-
-    100% {
-      @apply blur-none scale-[1] translate-y-0;
-    }
-  }
 </style>
