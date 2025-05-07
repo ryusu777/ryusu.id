@@ -9,7 +9,7 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Copy project files
+# Copy the rest of the application
 COPY . .
 
 # Build the application
@@ -20,16 +20,23 @@ FROM node:22-alpine
 
 WORKDIR /app
 
-# Copy built application from builder stage
-COPY --from=builder /app/.output ./.output
-COPY --from=builder /app/.nuxt ./.nuxt
-COPY --from=builder /app/package*.json ./
+# Copy package files
+COPY package*.json ./
 
 # Install production dependencies only
-RUN npm ci --only=production
+RUN npm install --production
 
-# Expose the port the app runs on
+# Copy built application from builder stage
+COPY --from=builder /app/.output /app/.output
+
+# Set environment variables
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0
+ENV PORT=3000
+
+# Expose the port
 EXPOSE 3000
 
 # Start the application
 CMD ["node", ".output/server/index.mjs"]
+
