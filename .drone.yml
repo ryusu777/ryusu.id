@@ -3,43 +3,34 @@ type: kubernetes
 name: nuxt-pipeline
 
 steps:
-  - name: install
-    image: node:22-alpine
-    commands:
-      - npm install
-    when:
-      event:
-        - push
-        - pull_request
-
-  - name: build
-    image: node:22-alpine
-    commands:
-      - npm run build
-    depends_on:
-      - install
-    when:
-      event:
-        - push
-        - pull_request
-        - custom
-
-  - name: deploy
-    image: bitnami/kubectl:latest
-    environment:
-      KUBECONFIG_CONTENT:
-        from_secret: kubeconfig_content
-    commands:
-      - echo $KUBECONFIG_CONTENT > /.kube/config
-      - kubectl rollout restart deployment web -n ryusu-id
-    depends_on:
-      - build
+  - name: build-and-push
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      repo: ryusu777/ryusu.id
+      tags:
+        - latest
+        - ${DRONE_COMMIT_SHA:0:7}
     when:
       branch:
         - master
       event:
         - push
-        - custom
+
+  - name: deploy
+    image: bitnami/kubectl:latest
+    commands:
+      - kubectl rollout restart deployment web -n ryusu-id
+    depends_on:
+      - build-and-push
+    when:
+      branch:
+        - master
+      event:
+        - push
 
 trigger:
   branch:
