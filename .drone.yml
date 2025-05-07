@@ -27,10 +27,10 @@ steps:
   - name: deploy
     image: bitnami/kubectl:latest
     environment:
-      KUBECONFIG:
+      KUBECONFIG_CONTENT:
         from_secret: kubeconfig_content
     commands:
-      - echo $KUBECONFIG > /.kube/config
+      - echo $KUBECONFIG_CONTENT > /.kube/config
       - kubectl rollout restart deployment web -n ryusu-id
     depends_on:
       - build
