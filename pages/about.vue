@@ -108,7 +108,7 @@ import type PaperJsBackground from '~/components/PaperJsBackground.vue';
                 <span class="skill-tag">Mobile</span>
                 <span class="skill-tag">Cloud</span>
                 <Tooltip text="Domain Driven Design">
-                  <span class="skill-tag">DDD</span>
+                  <span class="skill-tag">Domain-driven Design</span>
                 </Tooltip>
                 <span class="skill-tag">Clean Architecture</span>
                 <span class="skill-tag">Project Management</span>

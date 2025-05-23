@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scrollbar-color: theme('colors.primary') transparent;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+    overflow-y: auto;
+  }
+  html::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+  }
+  html::-webkit-scrollbar-thumb {
+    background-color: theme('colors.primary');
+    border-radius: 4px;
+  }
+}

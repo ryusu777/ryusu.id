@@ -50,7 +50,7 @@
 
 <style scoped lang="scss">
   .nav-link {
-    @apply text-gray-600 dark:text-gray-300;
+    @apply text-gray-600 dark:text-gray-300 font-bold tracking-wide text-lg;
     @apply hover:text-primary dark:hover:text-primary;
     @apply transition-all;
     @apply px-6 py-1.5 rounded-3xl;
