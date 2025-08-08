@@ -22,7 +22,7 @@ import type PaperJsBackground from '~/components/PaperJsBackground.vue';
           <section class="bento-section md:col-span-2 bg-primary/5 dark:bg-primary/5">
             <div class="relative">
               <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">
-                Software Developer & Technical Lead
+                Software Developer
               </h1>
               <p class="text-lg section-text leading-relaxed">
                 Specialized in building sophisticated web-based systems with a focus on scalable
@@ -34,9 +34,9 @@ import type PaperJsBackground from '~/components/PaperJsBackground.vue';
           <!-- Profile Quick Info -->
           <section class="bento-section bg-primary/5 dark:bg-primary/5">
             <div class="relative">
-              <h2 class="text-2xl font-semibold mb-4">Current Role</h2>
+              <h2 class="text-2xl font-semibold mb-4">Current Focus</h2>
               <p class="text-gray-600 dark:text-gray-300">
-                Technical Lead focusing on architecture and coding standards
+                Software Developer focused on building scalable applications
               </p>
             </div>
           </section>
@@ -59,8 +59,8 @@ import type PaperJsBackground from '~/components/PaperJsBackground.vue';
                   <p class="text-gray-600 dark:text-gray-300">Modern infrastructure</p>
                 </div>
                 <div class="bento-card">
-                  <h3 class="font-semibold mb-2">Technical Leadership</h3>
-                  <p class="text-gray-600 dark:text-gray-300">Team mentoring</p>
+                  <h3 class="font-semibold mb-2">Problem Solving</h3>
+                  <p class="text-gray-600 dark:text-gray-300">Complex challenges</p>
                 </div>
               </div>
             </div>
@@ -71,7 +71,7 @@ import type PaperJsBackground from '~/components/PaperJsBackground.vue';
             <div class="relative">
               <h2 class="section-title">Current Focus</h2>
               <p class="section-text">
-                Elevating software architecture practices, establishing robust coding standards for
+                Building robust software architecture, implementing clean coding practices for
                 scalable solutions, and exploring LLM capabilities and implementations.
               </p>
             </div>
@@ -112,7 +112,7 @@ import type PaperJsBackground from '~/components/PaperJsBackground.vue';
                 </Tooltip>
                 <span class="skill-tag">Clean Architecture</span>
                 <span class="skill-tag">Project Management</span>
-                <span class="skill-tag">Mentoring</span>
+                <span class="skill-tag">Code Review</span>
               </div>
             </div>
           </section>
