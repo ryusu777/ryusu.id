@@ -6,7 +6,7 @@
       <ClientOnly>
         <AnimatedBackground v-if="!isMobile" />
       </ClientOnly>
-      <h1 class="text-9xl font-bold relative z-10">Hi</h1>
+      <h1 class="text-9xl font-bold relative z-10">Hello there.</h1>
       <p class="text-bold md:text-3xl text-xl typing-animation text-center relative z-10">
         My name is Jose Ryu. <br />
         I'm an active software engineer <br />
@@ -21,7 +21,7 @@
   import { useBreakpoints, breakpointsTailwind } from '@vueuse/core';
 
   const breakpoints = useBreakpoints(breakpointsTailwind);
-  
+
   // These are reactive refs
   const isMobile = breakpoints.smaller('md');
 </script>
