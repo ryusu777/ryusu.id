@@ -4,7 +4,7 @@
   src: url('/fonts/SFMono Regular Nerd Font Complete.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
-  font-display: fallback;
+  font-display: block;
 }
 
 @font-face {
@@ -55,7 +55,7 @@
   src: url('/fonts/SFMono Semibold Nerd Font Complete.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
-  font-display: fallback;
+  font-display: block;
 }
 
 @font-face {
@@ -72,7 +72,7 @@
   src: url('/fonts/SFMono Bold Nerd Font Complete.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
-  font-display: fallback;
+  font-display: block;
 }
 
 @font-face {

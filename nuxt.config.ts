@@ -26,7 +26,14 @@ export default defineNuxtConfig({
           as: 'font',
           type: 'font/otf',
           crossorigin: 'anonymous',
-          href: '/fonts/SFMono Medium Nerd Font Complete.otf',
+          href: '/fonts/SFMono Semibold Nerd Font Complete.otf',
+        },
+        {
+          rel: 'preload',
+          as: 'font',
+          type: 'font/otf',
+          crossorigin: 'anonymous',
+          href: '/fonts/SFMono Bold Nerd Font Complete.otf',
         },
         {
           rel: 'icon',
